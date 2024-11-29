@@ -1,13 +1,13 @@
 {% set name = "gwtc-tools" %}
-{% set version = "0.1.5" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/gwtc_tools-{{ version }}.tar.gz
-  sha256: 6672e0a735f816ca7ee230ea92e641e02e5f614f062e6532eccb03f5137e3b42
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gwtc_tools-{{ version }}.tar.gz
+  sha256: d8f8e61bb781658f237cca5a5a8bd9179076309f4c44db21d26a08e063c2707c
 
 build:
   entry_points:
