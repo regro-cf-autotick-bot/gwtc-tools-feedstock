@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/gwtc_tools-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gwtc_tools-{{ version }}.tar.gz
   sha256: 6672e0a735f816ca7ee230ea92e641e02e5f614f062e6532eccb03f5137e3b42
 
 build:
@@ -18,17 +18,17 @@ build:
     - gwtc_test = gwtc:gwtc_test
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools >=42
     - setuptools-scm >=3.4.3
     - wheel
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - ligo-gracedb
     - pyyaml
     - cbcflow
@@ -44,6 +44,7 @@ test:
     - gwtc_create_from_query --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://git.ligo.org/chad-hanna/gwtc
